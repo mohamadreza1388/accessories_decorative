@@ -1,0 +1,32 @@
+$(function(){$(".translate-effect").hover(function(){$(this).animate({"top":"8px"},150).animate({"top":"-8px"},150).animate({"top":"4px"},150).animate({"top":"-4px"},150).animate({"top":"0"},150)},function(){$(this).stop(true).css("top","0")})
+let active_class=$(".filter a.active").attr("class")
+active_class=active_class.substring(0,7)
+console.log(active_class)
+$("#product1 .product").hide(0).filter("."+active_class).show(0)
+$(".filter a").click(function(){let className=$(this).attr("class")
+className=className.substring(0,7)
+console.log(className)
+$("#product1 .product").fadeOut(0).filter("."+className).fadeIn(300)
+$('.filter li a.active').removeClass('active')
+$(this).addClass('active')
+return false})
+let date=new Date()
+let seconds=date.getSeconds()
+let minutes=date.getMinutes()
+let hour=date.getHours()
+setInterval(function(){let out_seconds=seconds--
+if(seconds===0){seconds=60;minutes--}
+if(minutes===0){minutes=60;hour--}
+let out_minutes=minutes
+let out_hour=hour+1
+$("#second .number").text(out_seconds)
+$("#minutes .number").text(out_minutes)
+$("#hour .number").text(out_hour)},1000)
+$('#amazing-products>.my-container>.slide-wrapper>.left').slick({dots:false,slidesToShow:3,slidesToScroll:1,rtl:true,responsive:[{breakpoint:992,settings:{slidesToShow:2,slidesToScroll:1,arrows:false}},{breakpoint:768,settings:{slidesToShow:1,slidesToScroll:1,arrows:false}}]});$('#new-product>.my-container>div:last-child').slick({dots:false,slidesToShow:4,slidesToScroll:1,rtl:true,responsive:[{breakpoint:992,settings:{slidesToShow:2,slidesToScroll:1,arrows:false}},{breakpoint:768,settings:{slidesToShow:1,slidesToScroll:1,arrows:false}}]});$(".bars-icon").click(function(){$("#right-menu").css("right","0")
+$(".overlay").css("right","0")})
+$(".close-icon").click(function(){$("#right-menu").css("right","-100%")
+$(".overlay").css("right","-100%")})
+$(".search-btn").click(function(){$(".overlay2").fadeIn(500)
+return false})
+$(".overlay2 .close-icon").click(function(){$(".overlay2").fadeOut(500)
+return false})})
